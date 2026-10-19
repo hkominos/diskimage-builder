@@ -20,7 +20,7 @@ set -exu
 # not handling properly.  So, create a new script to first check if the
 # file exists, then use 'yes' to disable overwriting of existing files.
 
-for key in dsa ecdsa ed25519 rsa; do
+for key in ecdsa ed25519 rsa; do
     FILE=/etc/ssh/ssh_host_${key}_key
     if ! [ -f $FILE ]; then
         /usr/bin/yes n | /usr/bin/ssh-keygen -f $FILE -N '' -t $key
